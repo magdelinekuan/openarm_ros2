@@ -45,11 +45,11 @@
 
         <link name="${prefix}link1">
             <visual>
-                <origin rpy="0 0 0" xyz="0.0 0.0 -0.0007"/>
+                <origin rpy="0 0 0" xyz="0.0 0.0 0.07"/>
                 <geometry>
-                    <mesh filename="package://openarm_description/meshes/link1.stl"/>
+                <mesh filename="package://openarm_description/meshes/right_base.dae" scale= "0.001 0.001 0.001"/>
                 </geometry>
-                <material name="gray"/>
+                <!-- <material name="gray"/> -->
             </visual>
             <collision>
                 <origin rpy="0 0 0" xyz="0.0 0.0 0.0289"/>

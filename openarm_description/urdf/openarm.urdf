@@ -97,9 +97,9 @@
     <visual>
       <origin rpy="0 0 0" xyz="0.0 0.0 -0.0007"/>
       <geometry>
-        <mesh filename="package://openarm_description/meshes/link1.stl"/>
+        <mesh filename="package://openarm_description/meshes/right_base_link_color.dae"/>
       </geometry>
-      <material name="gray"/>
+      <!-- <material name="gray"/> -->
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0.0 0.0 0.0289"/>

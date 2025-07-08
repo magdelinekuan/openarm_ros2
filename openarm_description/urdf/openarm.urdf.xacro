@@ -21,5 +21,5 @@
     
     <xacro:include filename="openarm.xacro"/>
     <xacro:openarm prefix="$(arg prefix)" use_mock_hardware="$(arg use_mock_hardware)" mock_sensor_commands="$(arg mock_sensor_commands)"/>
-    <xacro:include filename="$(find openarm_description)/urdf/openarm_sensors.xacro"/>
+    <!-- <xacro:include filename="$(find openarm_description)/urdf/openarm_sensors.xacro"/> -->
 </robot>

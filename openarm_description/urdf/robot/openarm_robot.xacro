@@ -82,6 +82,7 @@
         kinematics_link="${kinematics_link}"
         kinematics_offset="${kinematics_offset}" />
 
+        <xacro:if value="${ros2_control}">
         <xacro:openarm_arm_ros2_control
         arm_type="${arm_type}"
         arm_prefix="left_"
@@ -92,7 +93,8 @@
         gazebo_effort="${gazebo_effort}"
         hand="${hand}"
         bimanual="true"
-      />
+        />
+       </xacro:if>
 
         <!-- right arm -->
         <xacro:openarm_arm 
@@ -110,23 +112,22 @@
         kinematics_link="${kinematics_link}"
         kinematics_offset="${kinematics_offset}" />
 
-
-        <xacro:openarm_arm_ros2_control
-        arm_type="${arm_type}"
-        arm_prefix="right_"
-        can="can0"
-        use_fake_hardware="${use_fake_hardware}"
-        fake_sensor_commands="${fake_sensor_commands}"
-        gazebo="${gazebo}"
-        gazebo_effort="${gazebo_effort}"
-        hand="${hand}"
-        bimanual="true"
-        />
-
+        <xacro:if value="${ros2_control}">
+            <xacro:openarm_arm_ros2_control
+            arm_type="${arm_type}"
+            arm_prefix="right_"
+            can="can0"
+            use_fake_hardware="${use_fake_hardware}"
+            fake_sensor_commands="${fake_sensor_commands}"
+            gazebo="${gazebo}"
+            gazebo_effort="${gazebo_effort}"
+            hand="${hand}"
+            bimanual="true"/>
+        </xacro:if>
 
         <xacro:if value="${hand and ee_type == 'openarm_hand'}">
             <xacro:openarm_hand
-                connected_to="left_${arm_type}_link8"
+                connected_to="openarm_left_link8"
                 arm_type="${arm_type}"
                 arm_prefix="left_"
                 ee_type="${ee_type}"
@@ -140,7 +141,7 @@
                 description_pkg="$(arg description_pkg)"
             />
             <xacro:openarm_hand
-                connected_to="right_${arm_type}_link8"
+                connected_to="openarm_right_link8"
                 arm_type="${arm_type}"
                 arm_prefix="right_"
                 ee_type="${ee_type}"
@@ -154,7 +155,6 @@
                 description_pkg="$(arg description_pkg)"
             />
           </xacro:if>
-
     </xacro:if>
 
     <xacro:if value="${not bimanual}">
@@ -173,6 +173,7 @@
         connected_to=""
         />
 
+        <xacro:if value="${ros2_control}">
         <xacro:openarm_arm_ros2_control
             arm_type="${arm_type}"
             arm_prefix="${arm_prefix_modified}"
@@ -182,13 +183,15 @@
             gazebo="${gazebo}"
             gazebo_effort="${gazebo_effort}"
             hand="${hand}"
-            bimanual="false"
-        />
+            bimanual="false"/>
+        </xacro:if>
 
         <xacro:if value="${hand and ee_type == 'openarm_hand'}">
 
         <xacro:property name="special_connection" value="$(arg special_connection)" />
-        <xacro:property name="connection" value="${special_connection if special_connection != '' else arm_type + '_link8'}" />
+        <!-- <xacro:property name="connection" value="${special_connection if special_connection != '' else arm_type + '_link8'}" /> -->
+        <xacro:property name="connection" value="${special_connection if special_connection != '' else 'openarm' + '_link8'}" />
+
         <xacro:openarm_hand
             connected_to="${arm_prefix_modified}${connection}"
             arm_type="${arm_type}"
@@ -201,8 +204,7 @@
             tcp_xyz="$(arg tcp_xyz)"
             tcp_rpy="$(arg tcp_rpy)"
             gazebo="${gazebo}"
-            description_pkg="$(arg description_pkg)"
-        />
+            description_pkg="$(arg description_pkg)"/>
         </xacro:if>
 
         <!-- <xacro:if value="${hand and ee_type != 'none' and ee_type != 'openarm_hand'}">

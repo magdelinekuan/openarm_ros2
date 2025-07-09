@@ -30,11 +30,11 @@
   <xacro:arg name="rpy" default="0 0 0" />
 
   <!-- Is the robot being controlled with ros2_control?" -->
-  <xacro:arg name="ros2_control" default="false" />
+  <xacro:arg name="ros2_control" default="true" />
   <!-- IP address or hostname of the robot" -->
   <xacro:arg name="can" default="can0" />
   <!-- Should a fake hardware be used? -->
-  <xacro:arg name="use_fake_hardware" default="false" />
+  <xacro:arg name="use_fake_hardware" default="true" />
   <!-- Should fake sensors be used? -->
   <xacro:arg name="fake_sensor_commands" default="false" />
   <!-- Should the robot be spawned in Gazebo with effort interfaces?" -->

@@ -49,6 +49,8 @@
 
     <xacro:link_with_sc no_prefix="${no_prefix}" name="link2" gazebo="${gazebo}" kinematics_link="${kinematics_link}" reflect="${reflect}"/>
 
+    <xacro:property name="limit_offset_joint2" value="0.0" />
+
     <xacro:if value="${prefix.find('right_') != -1}">
       <xacro:property name="limit_offset_joint2" value="${pi/2}" />
     </xacro:if>

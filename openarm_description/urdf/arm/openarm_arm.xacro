@@ -11,7 +11,10 @@
   <xacro:macro name="openarm_arm" params="arm_type arm_prefix:='' no_prefix:=false description_pkg:='openarm_description' connected_to:='base' xyz:='0 0 0' rpy:='0 0 0' gazebo:='false' joint_limits inertials kinematics kinematics_link kinematics_offset:=none " >
 
     <!-- Define a property that defaults to 'arm_prefix_arm_type' concatenated with an underscore if 'no_prefix' is not set -->
-    <xacro:property name="prefix" value="${'' if no_prefix else arm_prefix + arm_type + '_'}" />
+     
+    <!-- <xacro:property name="prefix" value="${'' if no_prefix else arm_prefix + arm_type + '_'}" /> -->
+    <!-- <xacro:property name="prefix" value="${'' if no_prefix else arm_prefix + 'openarm' + '_'}" /> -->
+    <xacro:property name="prefix" value="${'' if no_prefix else 'openarm' + '_' + arm_prefix}" />
 
     <xacro:if value="${arm_prefix == 'right_'}">
       <xacro:property name="reflect" value="1" />
@@ -47,9 +50,10 @@
       <xacro:openarm-limits name="joint1" config="${joint_limits}" />
     </joint>
 
+    <!-- for bimanual offset -->
     <xacro:link_with_sc no_prefix="${no_prefix}" name="link2" gazebo="${gazebo}" kinematics_link="${kinematics_link}" reflect="${reflect}"/>
 
-    <xacro:property name="limit_offset_joint2" value="0.0" />
+    <xacro:property name="limit_offset_joint2" value="0" />
 
     <xacro:if value="${prefix.find('right_') != -1}">
       <xacro:property name="limit_offset_joint2" value="${pi/2}" />
@@ -124,5 +128,6 @@
       <parent link="${prefix}link7" />
       <child link="${prefix}link8" />
     </joint>
+
   </xacro:macro>
 </robot>

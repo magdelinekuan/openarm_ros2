@@ -30,13 +30,13 @@ controller_manager:
 left_arm_controller:
   ros__parameters:
     joints:
-      - left_v10_joint1
-      - left_v10_joint2
-      - left_v10_joint3
-      - left_v10_joint4
-      - left_v10_joint5
-      - left_v10_joint6
-      - left_v10_joint7
+      - openarm_left_joint1
+      - openarm_left_joint2
+      - openarm_left_joint3
+      - openarm_left_joint4
+      - openarm_left_joint5
+      - openarm_left_joint6
+      - openarm_left_joint7
     command_interfaces:
       - position
     state_interfaces:
@@ -45,13 +45,13 @@ left_arm_controller:
 right_arm_controller:
   ros__parameters:
     joints:
-      - right_v10_joint1
-      - right_v10_joint2
-      - right_v10_joint3
-      - right_v10_joint4
-      - right_v10_joint5
-      - right_v10_joint6
-      - right_v10_joint7
+      - openarm_right_joint1
+      - openarm_right_joint2
+      - openarm_right_joint3
+      - openarm_right_joint4
+      - openarm_right_joint5
+      - openarm_right_joint6
+      - openarm_right_joint7
     command_interfaces:
       - position
     state_interfaces:
@@ -60,8 +60,8 @@ right_arm_controller:
 left_gripper_controller:
   ros__parameters:
     joints:
-      - left_v10_finger_joint1
-      # - left_v10_finger_joint2
+      - openarm_left_finger_joint1
+      # - openarm_left_finger_joint2
     command_interfaces:
       - position
     state_interfaces:
@@ -70,8 +70,8 @@ left_gripper_controller:
 right_gripper_controller:
   ros__parameters:
     joints:
-      - right_v10_finger_joint1
-      # - right_v10_finger_joint2
+      - openarm_right_finger_joint1
+      # - openarm_right_finger_joint2
     command_interfaces:
       - position
     state_interfaces:
@@ -80,15 +80,15 @@ right_gripper_controller:
 left_side_controller:
   ros__parameters:
     joints:
-      - left_v10_joint1
-      - left_v10_joint2
-      - left_v10_joint3
-      - left_v10_joint4
-      - left_v10_joint5
-      - left_v10_joint6
-      - left_v10_joint7
-      - left_v10_finger_joint1
-      # - left_v10_finger_joint2
+      - openarm_left_joint1
+      - openarm_left_joint2
+      - openarm_left_joint3
+      - openarm_left_joint4
+      - openarm_left_joint5
+      - openarm_left_joint6
+      - openarm_left_joint7
+      - openarm_left_finger_joint1
+      # - openarm_left_finger_joint2
     command_interfaces:
       - position
     state_interfaces:
@@ -97,15 +97,15 @@ left_side_controller:
 right_side_controller:
   ros__parameters:
     joints:
-      - right_v10_joint1
-      - right_v10_joint2
-      - right_v10_joint3
-      - right_v10_joint4
-      - right_v10_joint5
-      - right_v10_joint6
-      - right_v10_joint7
-      - right_v10_finger_joint1
-      # - right_v10_finger_joint2
+      - openarm_right_joint1
+      - openarm_right_joint2
+      - openarm_right_joint3
+      - openarm_right_joint4
+      - openarm_right_joint5
+      - openarm_right_joint6
+      - openarm_right_joint7
+      - openarm_right_finger_joint1
+      # - openarm_right_finger_joint2
     command_interfaces:
       - position
     state_interfaces:
@@ -114,24 +114,24 @@ right_side_controller:
 upper_body_controller:
   ros__parameters:
     joints:
-      - left_v10_joint1
-      - left_v10_joint2
-      - left_v10_joint3
-      - left_v10_joint4
-      - left_v10_joint5
-      - left_v10_joint6
-      - left_v10_joint7
-      - left_v10_finger_joint1
-      # - left_v10_finger_joint2
-      - right_v10_joint1
-      - right_v10_joint2
-      - right_v10_joint3
-      - right_v10_joint4
-      - right_v10_joint5
-      - right_v10_joint6
-      - right_v10_joint7
-      - right_v10_finger_joint1
-      # - right_v10_finger_joint2
+      - openarm_left_joint1
+      - openarm_left_joint2
+      - openarm_left_joint3
+      - openarm_left_joint4
+      - openarm_left_joint5
+      - openarm_left_joint6
+      - openarm_left_joint7
+      - openarm_left_finger_joint1
+      # - openarm_left_finger_joint2
+      - openarm_right_joint1
+      - openarm_right_joint2
+      - openarm_right_joint3
+      - openarm_right_joint4
+      - openarm_right_joint5
+      - openarm_right_joint6
+      - openarm_right_joint7
+      - openarm_right_finger_joint1
+      # - openarm_right_finger_joint2
     command_interfaces:
       - position
     state_interfaces:
